@@ -1,6 +1,4 @@
-# Project 1
-
-Web Programming with Python and JavaScript
+# Bookworms
 
 The name of this website is Bookworms.
 This website allows a user to create an account and login to the Bookworms website using that account.
