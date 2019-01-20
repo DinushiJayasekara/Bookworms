@@ -8,6 +8,4 @@ SQLAlchemy
 
 requests
 
-json
-
 csv
