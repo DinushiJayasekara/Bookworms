@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookworms</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color: #D98880;">
+    <a class="navbar-brand mb-0 h1">Bookworms</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="{{ url_for('logout') }}" method="post">
+        <button class="btn btn-danger btn-lg my-2 my-sm-0" type="submit" name="logout_button">Logout</button>
+      </form>
+    </div>
+    </nav><br>
+    <div class="container">
+      {% block main_heading %}
+        <br><h1 class="text-center"><br>{{topic}}<br></h1>
+      {% endblock %}
+
+    {% block content %}
+      <h5 class="text-center"><br>{{message}}</h5>
+    {% endblock %}
+    </div>
+    <footer style="background-color: #D98880; padding: 18px;" class="fixed-bottom">
+      CS50Web 2019 Project 1 - J. K. D. R. Jayasekara
+    </footer>
+  </body>
+</html>

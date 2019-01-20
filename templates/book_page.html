@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block main_heading %}
+<br><h2><br>Details of the Book<br></h2>
+{% endblock %}
+
+{% block content %}
+  <ul>
+      <li>
+         Title: {{book_title_dets.book_title}}
+      </li>
+      <li>
+         Author: {{book_author_dets.book_author}}
+      </li>
+      <li>
+         Year: {{book_year_dets.book_year}}
+      </li>
+      <li>
+         ISBN: {{book_isbn_dets.book_isbn}}
+      </li>
+  </ul>
+
+  <h3>Goodreads Review Data</h3>
+  <ul>
+    <li>
+      Number of Ratings: {{ work_ratings_count }}
+    </li>
+    <li>
+      Average Rating: {{ average_rating }}
+    </li>
+  </ul>
+
+  <h3>Your Review</h3>
+
+  <form class="" action="{{ url_for('reviews', isbn=book_isbn_dets.book_isbn) }}" method="post">
+    <div class="form-group">
+      Please enter your username and password for authentication if you are submitting a review:<br>
+      <br>
+      <div class="row">
+        <div class="col">
+          Username: <input type="text" name="user_name" class="form-control" required>
+        </div>
+        <div class="col">
+          Password: <input type="password" name="user_password" class="form-control" required><br>
+        </div>
+      </div>
+      Rating:
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="inlineRadio1" type="radio" name="review_rating" value="1"><label class="form-check-label" for="inlineRadio1">1 point</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="inlineRadio1" type="radio" name="review_rating" value="2"><label class="form-check-label" for="inlineRadio1">2 points</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="inlineRadio1" type="radio" name="review_rating" value="3"><label class="form-check-label" for="inlineRadio1">3 points</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="inlineRadio1" type="radio" name="review_rating" value="4"><label class="form-check-label" for="inlineRadio1">4 points</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="inlineRadio1" type="radio" name="review_rating" value="5"><label class="form-check-label" for="inlineRadio1">5 points</label>
+      </div><br>
+      <br>Write your review here:
+      <br><textarea name="review_comment" rows="5" cols="70" class="form-control"></textarea><br>
+      <button name="register_button" class="btn btn-danger btn-lg" type="submit">Submit Review</button>
+    </div>
+    <br>
+  </form>
+  <br>
+{% endblock %}

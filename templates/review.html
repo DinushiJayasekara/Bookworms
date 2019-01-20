@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+  {% block main_heading %}
+  <br><h2><br>Your Review<br></h2>
+  {% endblock %}
+
+  {% block content %}
+
+    {% if check.rowcount!=0 %}
+      {{message}}<br>
+      <br><h2>Other Reviews</h2>
+      <ul class="list-group">
+        {% for each_review in other_reviews %}
+        <br>
+        <li class="list-group-item">
+          <b>Username: </b>{{each_review["review_user_name"]}}<br>
+          <b>Rating out of 5 points: </b>{{each_review["review_rating"]}}<br>
+          <b>Comment: </b>{{each_review["review_comment"]}}<br>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <ul class="list-group">
+        <li class="list-group-item">
+          Your rating: {{review_rating}}/5<br>
+          Your comment: {{review_comment}}<br>
+        </li>
+      </ul>
+      <br><h2>Other Reviews</h2>
+      <ul class="list-group">
+        {% for each_review in other_reviews %}
+        <br>
+        <li class="list-group-item">
+          <b>Username: </b>{{each_review["review_user_name"]}}<br>
+          <b>Rating out of 5 points: </b>{{each_review["review_rating"]}}<br>
+          <b>Comment: </b>{{each_review["review_comment"]}}<br>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+{% endblock %}

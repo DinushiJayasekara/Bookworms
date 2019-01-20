@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block main_heading %}
+  <br><h2><br>Here's what we found...<br></h2>
+{% endblock %}
+
+{% block content %}
+<br>
+  {% if result_type=="1" %}
+    <ul class="list-group">
+      {% for row in results1 %}
+        <li class="list-group-item">
+           <a href="{{ url_for('details', id=row.book_id) }}">{{row.book_title}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% elif result_type=="2" %}
+    <ul class="list-group">
+      {% for row in results2 %}
+        <li class="list-group-item">
+           <a href="{{ url_for('details', id=row.book_id) }}">{{row.book_title}} by {{row.book_author}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <ul class="list-group">
+      {% for row in results3 %}
+        <li class="list-group-item">
+           <a href="{{ url_for('details', id=row.book_id) }}">{{row.book_title}} (ISBN: {{row.book_isbn}})</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}

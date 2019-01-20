@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block main_heading %}
+
+  <br><h1 class="text-center"><br>Welcome to Bookworms!<br></h1><br>
+
+  <h3>Create a new account</h3>
+{% endblock %}
+
+{% block content %}
+
+  <form action="{{ url_for('search_register') }}" method="post">
+    <div class="form-group">
+      <br>Username: <br><input type="text" name="user_name" placeholder="Bookbuddy1" class="form-control" required><br>
+      <br>Password: <br><input type="password" name="user_password" class="form-control" required><br>
+      <br><button name="register_button" class="btn btn-danger btn-lg" type="submit">Register Now</button><br>
+    </div>
+  </form>
+  <h4><br>{{message}}</h4>
+{% endblock %}
